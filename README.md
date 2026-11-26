@@ -53,8 +53,8 @@ AI_Chatbot/
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd AI_Chatbot
+git clone https://github.com/nandhinimanivella3/AI-Chatbot-Django.git
+cd AI-Chatbot-Django
 ```
 
 ### 2. Create and activate a virtual environment
