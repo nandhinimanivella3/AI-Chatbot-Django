@@ -1,0 +1,97 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+
+    <link rel="stylesheet" href="{% static 'chatbot/style.css' %}">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+        <div class="brand">
+            <div class="brand-icon">🤖</div>
+            <div>
+                <h2>AI Chatbot</h2>
+                <small>Ask. Learn. Explore.</small>
+            </div>
+        </div>
+
+        <button class="new-chat" onclick="newChat()">
+            ＋ New Chat
+        </button>
+
+        <div class="history-title">YOUR CHATS</div>
+        <div id="history-list"></div>
+
+        <div class="sidebar-bottom">
+            <div class="profile-icon">N</div>
+            <div>
+                <strong>My AI Assistant</strong>
+                <small>Personal workspace</small>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <span>AI Assistant</span>
+            <button onclick="toggleTheme()">☀️</button>
+        </header>
+
+        <section class="welcome" id="welcome">
+            <div class="robot">🤖</div>
+
+            <h1>Welcome to <span>AI Assistant</span></h1>
+            <p>How can I help you today?</p>
+
+            <div class="suggestions">
+                <button onclick="askSuggestion('Explain Python programming')">
+                    💡 Explain Python
+                </button>
+
+                <button onclick="askSuggestion('Help me build a Django project')">
+                    💻 Django Help
+                </button>
+
+                <button onclick="askSuggestion('Give me career guidance')">
+                    🎓 Career Tips
+                </button>
+
+                <button onclick="askSuggestion('Explain healthy food habits')">
+                    ❤️ Healthy Lifestyle
+                </button>
+            </div>
+        </section>
+
+        <section id="chat-box" class="chat-box"></section>
+
+        <div class="composer-area">
+            <div class="composer">
+                <textarea id="message"
+                    placeholder="Message AI Assistant..."
+                    rows="1"></textarea>
+
+                <button id="send-button" onclick="sendMessage()">➤</button>
+            </div>
+
+            <small>AI can make mistakes. Verify important information.</small>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    const CHAT_API_URL = "{% url 'chat_api' %}";
+</script>
+
+<script src="{% static 'chatbot/script.js' %}"></script>
+
+</body>
+</html>
